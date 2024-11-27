@@ -1,4 +1,4 @@
-fastapi[all]
+fastapi
 pydantic
 starlette
 transformers
