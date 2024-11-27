@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse, FileResponse
 from pathlib import Path
 from pydantic import BaseModel
 from starlette.exceptions import HTTPException as StarletteHTTPException
-from transformers import BertTokenizer, BertModel
+from transformers import AutoModel, AutoTokenizer
 import torch
 from scipy.spatial.distance import cosine
 
@@ -12,9 +12,8 @@ app = FastAPI()
 
 # 日本語BERTの準備
 print("現在、正誤判定用のモデル「cl-tohoku/bert-base-japanese」を読み込んでいます...")
-model_name = "cl-tohoku/bert-base-japanese"
-tokenizer = BertTokenizer.from_pretrained(model_name)
-model = BertModel.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained("./model")
+model = AutoModel.from_pretrained("./model")
 print("モデルの読み込みは正常に完了しました。")
 
 def get_embedding(text):
