@@ -4,3 +4,4 @@ starlette
 transformers
 torch
 scipy
+uvicorn
