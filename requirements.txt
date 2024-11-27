@@ -1,0 +1,6 @@
+fastapi
+pydantic
+starlette
+transformers
+torch
+scipy
