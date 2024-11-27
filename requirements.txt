@@ -1,7 +1,6 @@
-fastapi
+fastapi[all]
 pydantic
 starlette
 transformers
 torch
 scipy
-uvicorn
