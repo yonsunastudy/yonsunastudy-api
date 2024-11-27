@@ -4,3 +4,5 @@ starlette
 transformers
 torch
 scipy
+fugashi
+unidic-lite
