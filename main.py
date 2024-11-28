@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, FileResponse
+from fastapi.encoders import jsonable_encoder
 from pathlib import Path
 from pydantic import BaseModel
 from starlette.exceptions import HTTPException as StarletteHTTPException
@@ -7,6 +8,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 from transformers import AutoModel, AutoTokenizer
 import torch
 from scipy.spatial.distance import cosine
+import numpy as np
 
 # FastAPIインスタンス
 app = FastAPI()
@@ -94,16 +96,16 @@ async def judgment(item: JudgmentRequest):
         if not some_keywords_present:
             similarity = 0
 
-    return {
+    return jsonable_encoder({
         "answer": {
             "currentAnswer": correct_answer,
             "userAnswer": user_answer,
         },
         "requiredKeywords": required_keywords,
         "gradingCriteria": grading_criteria,
-        "similarity": round(similarity, 2),
+        "similarity": round(float(similarity), 2),
         "results": judgmentResults,
-    }
+    })
 
 @app.get("/favicon.ico")
 async def favicon():
