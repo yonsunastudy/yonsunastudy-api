@@ -6,3 +6,4 @@ torch
 scipy
 fugashi
 unidic-lite
+uvicorn
