@@ -7,3 +7,4 @@ scipy
 fugashi
 unidic-lite
 uvicorn
+ipadic
