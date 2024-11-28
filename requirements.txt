@@ -1,0 +1,8 @@
+fastapi
+pydantic
+starlette
+transformers
+torch
+scipy
+fugashi
+unidic-lite
